@@ -1,0 +1,39 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/services/" />
+  <Folder Name="/src/services/basket/">
+    <Project Path="src/services/basket/UdemyMicroservices.Basket.Api/UdemyMicroservices.Basket.Api.csproj" Id="12136a23-ddf5-48ef-9352-f17aca9c9199" />
+  </Folder>
+  <Folder Name="/src/services/catalog/">
+    <Project Path="src/services/catalog/UdemyMicroservices.Catalog.Api/UdemyMicroservices.Catalog.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/services/discount/">
+    <Project Path="src/services/discount/UdemyMicroservices.Discount.Api/UdemyMicroservices.Discount.Api.csproj" Id="86722072-a7ec-438f-9bc7-5049dd381421" />
+  </Folder>
+  <Folder Name="/src/services/file/">
+    <Project Path="src/services/file/UdemyMicroservices.File.Api/UdemyMicroservices.File.Api/UdemyMicroservices.File.Api.csproj" Id="c5528834-f96d-4d95-a7a8-0c489204be3a" />
+  </Folder>
+  <Folder Name="/src/services/gateway/">
+    <Project Path="src/gateway/UdemyMicroservices.Gateway/UdemyMicroservices.Gateway.csproj" Id="28a92ccf-3faf-412f-ad43-ccfb69455cbd" />
+  </Folder>
+  <Folder Name="/src/services/order/" />
+  <Folder Name="/src/services/order/api/">
+    <Project Path="src/services/order/api/UdemyMicroservices.Order.Api/UdemyMicroservices.Order.Api.csproj" Id="610b84e6-a8a1-41f6-bff7-020fa3f80e8a" />
+  </Folder>
+  <Folder Name="/src/services/order/core/">
+    <Project Path="src/services/order/core/UdemyMicroservices.Order.Application/UdemyMicroservices.Order.Application.csproj" Id="fee7662f-9590-420b-a700-96ab5b813816" />
+    <Project Path="src/services/order/core/UdemyMicroservices.Order.Domain/UdemyMicroservices.Order.Domain.csproj" Id="2b2b516b-b1bf-495c-8e04-090e036f28f4" />
+  </Folder>
+  <Folder Name="/src/services/order/infrastructure/">
+    <Project Path="src/services/order/infrastructure/UdemyMicroservices.Order.Persistence/UdemyMicroservices.Order.Persistence.csproj" Id="97c9aaf3-b68f-44a1-9399-fce061b9ff06" />
+  </Folder>
+  <Folder Name="/src/services/payment/">
+    <Project Path="src/services/payment/UdemyMicroservices.Payment.Api/UdemyMicroservices.Payment.Api.csproj" Id="918edd16-34a4-43cb-8cb4-fb7b050bc48b" />
+  </Folder>
+  <Folder Name="/src/shared/">
+    <Project Path="src/shared/UdemyMicroservices.Shared/UdemyMicroservices.Shared.csproj" Id="9529b999-1166-4474-beae-f6d99bb442e0" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+</Solution>
