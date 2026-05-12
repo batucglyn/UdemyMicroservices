@@ -1,3 +1,4 @@
+using Microsoft.OpenApi;
 using UdemyMicroservices.Basket.Api;
 using UdemyMicroservices.Basket.Api.Features.Baskets;
 using UdemyMicroservices.Shared.Extensions;
@@ -7,9 +8,31 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "JWT token giriniz. Örnek: Bearer eyJ...",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
+
+    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+{
+    {
+        new OpenApiSecuritySchemeReference("Bearer", document),
+        new List<string>()
+    }
+});
+});
+
 builder.Services.AddCommonServiceExt(typeof(BasketAssembly));
 builder.Services.AddVersioningExt();
+
+builder.Services.AddAuthenticationWithAuthorizationExt(builder.Configuration);
 builder.Services.AddScoped<BasketService>();
 builder.Services.AddStackExchangeRedisCache(options =>
 {
@@ -31,5 +54,7 @@ if (app.Environment.IsDevelopment())
 app.AddBasketGroupEndpointExt(app.AddVersionSetExt());
 
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.Run();
 

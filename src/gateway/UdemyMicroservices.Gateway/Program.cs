@@ -15,4 +15,7 @@ app.MapReverseProxy();
 
 app.MapGet("/", () => "YARP (Gateway)");
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.Run();
