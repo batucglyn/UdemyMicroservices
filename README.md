@@ -7,6 +7,7 @@ This repository contains a microservices-based e-commerce project built with .NE
 - .NET
 - Docker & Docker Compose
 - RabbitMQ
+- Keycloak
 - Clean Architecture
 - CQRS & MediatR
 - Entity Framework Core
