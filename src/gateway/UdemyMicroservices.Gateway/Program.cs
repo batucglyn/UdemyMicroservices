@@ -1,3 +1,5 @@
+using UdemyMicroservices.Shared.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
 
+
+builder.Services.AddAuthenticationWithAuthorizationExt(builder.Configuration);
 
 
 var app = builder.Build();

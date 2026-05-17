@@ -8,14 +8,19 @@ namespace UdemyMicroservices.Payment.Api.Features.Payment.Create
 {
     public class CreatePaymentCommandHandler(
     AppDbContext appDbContext,
-    IIdentityService identityService)
+    IIdentityService identityService,IHttpContextAccessor httpContextAccessor)
     : IRequestHandler<CreatePaymentCommand, ServiceResult<CreatePaymentResponse>>
     {
         public async Task<ServiceResult<CreatePaymentResponse>> Handle(CreatePaymentCommand request,
             CancellationToken cancellationToken)
         {
-            var userId = identityService.UserId;
-            var userName = identityService.UserName;
+
+            var userName =identityService.UserName;
+            var userId =identityService.UserId;
+            var roles=identityService.Roles;
+
+
+          
     
 
 

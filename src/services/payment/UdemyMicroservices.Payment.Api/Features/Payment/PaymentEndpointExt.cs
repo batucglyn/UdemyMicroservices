@@ -10,7 +10,7 @@ namespace UdemyMicroservices.Payment.Api.Features.Payment
         {
             app.MapGroup("api/v{version:apiVersion}/payments").WithTags("Payments").WithApiVersionSet(apiVersionSet)
                 .CreatePaymentGroupItemEndpoint()
-                .GetAllPaymentsByUserIdGroupItemEndpoint().RequireAuthorization();
+                .GetAllPaymentsByUserIdGroupItemEndpoint();
         }
     }
 }

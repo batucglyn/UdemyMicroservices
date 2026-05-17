@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
 using UdemyMicroservices.Shared.Options;
 using UdemyMicroservices.Shared.Services;
@@ -32,6 +33,23 @@ namespace UdemyMicroservices.Shared.Extensions
                     ValidateIssuerSigningKey = true,
                     ValidateLifetime = true,
                     ValidateIssuer = true,
+                    RoleClaimType = "roles",
+                    NameClaimType = "preferred_username"
+                };
+
+            }).AddJwtBearer("ClientCredentialSchema", options =>
+            {
+                options.Authority = identityOptions.Address;
+                options.Audience = identityOptions.Audience;
+                options.RequireHttpsMetadata = false;
+
+
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ValidateIssuer = true,
                 };
 
             });
@@ -39,7 +57,24 @@ namespace UdemyMicroservices.Shared.Extensions
 
 
 
-            services.AddAuthorization();
+            services.AddAuthorization(options=>
+            {
+                options.AddPolicy("ClientCredential", policy =>
+                {
+                    policy.AddAuthenticationSchemes("ClientCredentialSchema");
+                    policy.RequireAuthenticatedUser();
+                   
+                    policy.RequireClaim("client_id");
+
+                });
+                options.AddPolicy("Password", policy =>
+                {
+                    policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim(ClaimTypes.Email);
+                });
+
+            });
 
             return services;
         }

@@ -15,7 +15,7 @@ namespace UdemyMicroservices.Shared.Extensions;
             services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining(assembly));
             services.AddValidatorsFromAssemblyContaining(assembly);
             services.AddAutoMapper(cfg => { }, assembly);
-            services.AddScoped<IIdentityService, IdentityServiceMock>();
+            services.AddScoped<IIdentityService, IdentityService>();
         return services;
         }
     }

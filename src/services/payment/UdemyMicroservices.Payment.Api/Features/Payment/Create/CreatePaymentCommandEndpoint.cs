@@ -14,7 +14,7 @@ namespace UdemyMicroservices.Payment.Api.Features.Payment.Create
                 .WithName("create")
                 .MapToApiVersion(1, 0)
                 .Produces(StatusCodes.Status204NoContent)
-                .Produces<ProblemDetails>(StatusCodes.Status400BadRequest);
+                .Produces<ProblemDetails>(StatusCodes.Status400BadRequest).RequireAuthorization("Password");
 
             return group;
         }
