@@ -34,6 +34,7 @@
     <Project Path="src/services/payment/UdemyMicroservices.Payment.Api/UdemyMicroservices.Payment.Api.csproj" Id="918edd16-34a4-43cb-8cb4-fb7b050bc48b" />
   </Folder>
   <Folder Name="/src/shared/">
+    <Project Path="src/shared/UdemyMicroservices.Bus/UdemyMicroservices.Bus/UdemyMicroservices.Bus.csproj" Id="d664e4a5-93d8-4b9b-92c9-10a4149d6cd3" />
     <Project Path="src/shared/UdemyMicroservices.Shared/UdemyMicroservices.Shared.csproj" Id="9529b999-1166-4474-beae-f6d99bb442e0" />
   </Folder>
   <Project Path="docker-compose.dcproj">
